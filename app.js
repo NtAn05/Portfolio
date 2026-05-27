@@ -355,3 +355,48 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('- Biểu mẫu liên hệ với xác thực');
     console.log('- Smooth scroll');
 });
+
+/* ==================== THEME TOGGLE ==================== */
+const themeToggle = document.getElementById('themeToggle');
+
+// Hàm áp dụng theme (light/dark) và lưu vào localStorage
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.querySelector('.theme-icon').textContent = '☀️';
+    } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.querySelector('.theme-icon').textContent = '🌙';
+    }
+}
+
+// Khởi tạo theme từ localStorage hoặc prefer-color-scheme
+function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+        applyTheme(saved);
+        return;
+    }
+    // Nếu không có, sử dụng prefer-color-scheme của hệ thống
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+}
+
+// Event: thay đổi theme khi click vào nút
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        applyTheme(isDark ? 'light' : 'dark');
+    });
+}
+
+// Khởi tạo khi load
+initTheme();
+
+/* ==================== AVATAR HƯỚNG DẪN ==================== */
+// Hướng dẫn: Người dùng thay src của .profile-img bằng đường dẫn tới ảnh cá nhân.
+// Ví dụ:
+// <img src="images/my-avatar.jpg" alt="An Nguyễn" class="profile-img">
+// Hoặc sử dụng URL công khai: src="https://example.com/my-photo.jpg"
