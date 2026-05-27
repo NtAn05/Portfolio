@@ -1,9 +1,11 @@
 /* ==================== DỮ LIỆU DỰ ÁN ==================== */
 // Dữ liệu chi tiết của các dự án để hiển thị trong Modal
 const projectsData = {
-    'Hệ Thống Quản Lý Hồ Sơ Bệnh Nhân': {
-        description: 'Ứng dụng quản lý thông tin bệnh nhân toàn diện, cho phép lưu trữ, tìm kiếm và cập nhật hồ sơ bệnh nhân. Hệ thống được xây dựng sử dụng kiến trúc MVC truyền thống chạy trên máy chủ Tomcat.',
+    'Patient Record Management System': {
+
+        description: 'A comprehensive system for managing patient information, allowing you to store, search, and update patient records. The system is built using a traditional MVC architecture and runs on the Tomcat server.',
         technologies: ['Java', 'Spring Boot', 'Tomcat', 'MySQL', 'Servlet/JSP', 'JUnit'],
+
         structure: `
             - Model: Các entity như Patient, MedicalRecord
             - View: JSP pages để hiển thị giao diện
@@ -19,8 +21,9 @@ const projectsData = {
             'Xác thực người dùng và phân quyền'
         ]
     },
-    'Web API Quản Lý Thiết Bị IoT': {
-        description: 'API REST được xây dựng bằng .NET Core để quản lý các thiết bị IoT thông minh. API cung cấp các endpoint để tạo, cập nhật, kiểm soát và giám sát các thiết bị IoT từ xa.',
+    'IoT Device Management Web API': {
+        description: 'A REST API built with .NET Core to manage smart IoT devices. The API provides endpoints to create, update, control, and monitor IoT devices remotely.',
+
         technologies: ['C#', '.NET Core', 'ASP.NET Web API', 'Entity Framework', 'SQL Server', 'RESTful'],
         structure: `
             - Controllers: Xử lý HTTP requests (GET, POST, PUT, DELETE)
@@ -38,9 +41,10 @@ const projectsData = {
             'Logging và error handling toàn diện'
         ]
     },
-    'Kịch Bản Kiểm Thử Tự Động Dữ Liệu Lớn': {
-        description: 'Tự động hóa kiểm thử cho hệ thống xử lý dữ liệu quy mô lớn. Sử dụng Ranorex Studio để tạo các kịch bản kiểm thử tự động, giúp đảm bảo chất lượng và tính ổn định của ứng dụng.',
+    'Large-Scale Automation Test Scenarios': {
+        description: 'Automation testing for large-scale data processing systems. Using Ranorex Studio to create automated test scripts helps ensure the application quality and stability.',
         technologies: ['Ranorex Studio', 'JUnit', 'TestNG', 'Selenium', 'Java', 'Git'],
+
         structure: `
             - Test Scripts: Các kịch bản kiểm thử được tạo bằng Ranorex Studio
             - Page Objects: Mô tả các phần tử UI cần kiểm thử
@@ -57,8 +61,9 @@ const projectsData = {
             'Thực hiện kiểm thử hồi quy tự động'
         ]
     },
-    'Thiết Bị Hỗ Trợ Thông Minh': {
-        description: 'Thiết bị hỗ trợ thông minh tích hợp ESP32 vi điều khiển và cảm biến MPU6050 để cảm nhận chuyển động. Kết nối với Blynk IoT platform để giám sát và điều khiển từ xa thông qua ứng dụng di động.',
+    'Smart Assist Device': {
+        description: 'A smart assist device integrating an ESP32 microcontroller and an MPU6050 sensor to detect motion. It connects to the Blynk IoT platform for remote monitoring and control via a mobile app.',
+
         technologies: ['ESP32', 'Arduino IDE', 'C++', 'Blynk IoT', 'MPU6050', 'MQTT'],
         structure: `
             - Firmware: Code C++ chạy trên ESP32
@@ -215,35 +220,38 @@ const contactForm = document.getElementById('contactForm');
  * Xử lý sự kiện submit form
  * Kiểm tra dữ liệu và hiển thị thông báo thành công
  */
-contactForm.addEventListener('submit', (e) => {
-    // Ngăn chặn hành động mặc định của form (reload trang)
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        // Ngăn chặn hành động mặc định của form (reload trang)
+        e.preventDefault();
 
-    // Lấy các giá trị từ form
-    const fullName = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
+        // Lấy các giá trị từ form
+        const fullName = document.getElementById('fullName')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        const subject = document.getElementById('subject')?.value.trim();
+        const message = document.getElementById('message')?.value.trim();
 
-    // Kiểm tra xác thực dữ liệu cơ bản
-    if (!fullName || !email || !subject || !message) {
-        alert('⚠️ Vui lòng điền đầy đủ tất cả các trường!');
-        return;
-    }
+        // Kiểm tra xác thực dữ liệu cơ bản
+        if (!fullName || !email || !subject || !message) {
+            alert('⚠️ Vui lòng điền đầy đủ tất cả các trường!');
+            return;
+        }
 
-    // Kiểm tra định dạng email đơn giản
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('⚠️ Vui lòng nhập địa chỉ email hợp lệ!');
-        return;
-    }
+        // Kiểm tra định dạng email đơn giản
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('⚠️ Vui lòng nhập địa chỉ email hợp lệ!');
+            return;
+        }
 
-    // Nếu tất cả validation pass, hiển thị thông báo thành công
-    showSuccessMessage(fullName, subject);
+        // Nếu tất cả validation pass, hiển thị thông báo thành công
+        showSuccessMessage(fullName, subject);
 
-    // Reset form để người dùng có thể gửi tin nhắn khác
-    contactForm.reset();
-});
+        // Reset form để người dùng có thể gửi tin nhắn khác
+        contactForm.reset();
+    });
+}
+
 
 /**
  * Hiển thị thông báo thành công khi submit form

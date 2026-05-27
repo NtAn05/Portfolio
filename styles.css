@@ -7,7 +7,7 @@
 
 /* Biến CSS cho các màu và giá trị thiết kế */
 :root {
-    /* Light Mode Colors */
+    /* Base Colors (Light) */
     --primary-dark: #f5f7fa;
     --primary-blue: #2563eb;
     --primary-light: #3b82f6;
@@ -15,19 +15,27 @@
     --accent-purple: #a855f7;
     --text-light: #1a1a1a;
     --text-muted: #6b7280;
-    --bg-secondary: #ffffff;
+
+    --bg-page: #f5f7fa;
+    --bg-surface: #ffffff;
+    --bg-surface-2: #f0f4f8;
+    --card-bg: #ffffff;
+    --input-bg: #f9fafb;
+    --modal-bg: #ffffff;
+
     --border-color: #e5e7eb;
+
     --error-color: #ef4444;
     --success-color: #10b981;
-    
+
     /* Spacing */
     --spacing-unit: 1rem;
-    
+
     /* Border radius */
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
@@ -42,9 +50,17 @@
     --accent-purple: #d8b4fe;
     --text-light: #f1f5f9;
     --text-muted: #cbd5e1;
-    --bg-secondary: #1e293b;
+
+    --bg-page: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-surface-2: #132244;
+    --card-bg: #0b1220;
+    --input-bg: #0f172a;
+    --modal-bg: #0b1220;
+
     --border-color: #334155;
 }
+
 
 /* ==================== GLOBAL STYLES ==================== */
 html {
@@ -54,10 +70,38 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--primary-dark);
+    background-color: var(--bg-page);
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Text accent (Gradient + glow) */
+.text-accent {
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 6px 18px rgba(37, 99, 235, 0.25));
+    position: relative;
+}
+
+.text-accent::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.15em;
+    height: 0.35em;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.2), rgba(6, 182, 212, 0.18));
+    border-radius: 999px;
+    z-index: -1;
+}
+
+:root.dark .text-accent {
+    filter: drop-shadow(0 10px 22px rgba(59, 130, 246, 0.35));
 }
 
 /* Container chính để căn chỉnh nội dung */
@@ -66,6 +110,7 @@ body {
     margin: 0 auto;
     padding: 0 var(--spacing-unit);
 }
+
 
 /* Nút chung */
 .btn {
@@ -401,21 +446,22 @@ body {
     font-weight: 600;
 }
 
-:root.dark .hero-subtitle {
-    color: #e0e7ff;
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+    font-weight: 600;
 }
 
 .hero-description {
     font-size: 1.1rem;
-    color: #4b5563;
+    color: var(--text-muted);
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
     line-height: 1.8;
 }
 
-:root.dark .hero-description {
-    color: #cbd5e1;
-}
 
 /* Buttons container */
 .hero-buttons {
@@ -477,7 +523,7 @@ section {
 
 /* ==================== ABOUT SECTION ==================== */
 .about {
-    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-2) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -494,6 +540,11 @@ section {
     pointer-events: none;
 }
 
+:root.dark .about::before {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+}
+
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -505,7 +556,7 @@ section {
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #4b5563;
+    color: var(--text-muted);
     line-height: 1.8;
     font-size: 1.05rem;
 }
@@ -514,6 +565,7 @@ section {
     color: var(--text-light);
     font-weight: 500;
 }
+
 
 .about-highlight {
     display: flex;
@@ -659,9 +711,14 @@ section {
 
 /* ==================== PROJECTS SECTION ==================== */
 .projects {
-    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-2) 100%);
     position: relative;
 }
+
+:root.dark .projects {
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-2) 100%);
+}
+
 
 .projects::before {
     content: '';
@@ -689,8 +746,9 @@ section {
 .filter-btn {
     padding: 0.75rem 1.5rem;
     background-color: transparent;
-    color: #374151;
+    color: var(--text-muted);
     border: 2px solid rgba(229, 231, 235, 0.8);
+
     border-radius: var(--radius-lg);
     cursor: pointer;
     font-weight: 600;
@@ -723,6 +781,11 @@ section {
     transform: translateY(-2px);
 }
 
+:root.dark .filter-btn {
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+
 /* Projects grid */
 .projects-grid {
     display: grid;
@@ -733,8 +796,9 @@ section {
 }
 
 .project-card {
-    background: linear-gradient(135deg, #ffffff, #f9fafb);
+    background: linear-gradient(135deg, var(--card-bg), var(--bg-surface));
     border: 1px solid rgba(229, 231, 235, 0.8);
+
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: all var(--transition-normal);
@@ -808,10 +872,11 @@ section {
 
 .project-description {
     font-size: 0.95rem;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1rem;
     flex-grow: 1;
 }
+
 
 .project-tags {
     display: flex;
@@ -843,10 +908,15 @@ section {
 
 /* ==================== CONTACT SECTION ==================== */
 .contact {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 50%, #f5f7fa 100%);
+    background: linear-gradient(135deg, var(--bg-page) 0%, var(--bg-surface-2) 50%, var(--bg-page) 100%);
     position: relative;
     overflow: hidden;
 }
+
+:root.dark .contact {
+    background: linear-gradient(135deg, var(--bg-page) 0%, var(--bg-surface-2) 50%, var(--bg-page) 100%);
+}
+
 
 .contact::before {
     content: '';
@@ -862,31 +932,99 @@ section {
 }
 
 .contact-content {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
 .contact-description {
+
     text-align: center;
     font-size: 1.1rem;
-    color: #4b5563;
+    color: var(--text-muted);
     margin-bottom: 3rem;
 }
 
-/* Form styles */
-.contact-form {
-    background: linear-gradient(135deg, #ffffff, #f9fafb);
+
+/* Contact links (thay cho form nhập tin nhắn) */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: linear-gradient(135deg, var(--modal-bg), var(--bg-surface));
     padding: 2rem;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(229, 231, 235, 0.8);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+:root.dark .contact-links {
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.contact-link {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    background: rgba(37, 99, 235, 0.04);
+    transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.45);
+    background: rgba(37, 99, 235, 0.12);
+}
+
+:root.dark .contact-link {
+    border-color: rgba(51, 65, 85, 0.9);
+    background: rgba(59, 130, 246, 0.08);
+}
+
+:root.dark .contact-link:hover {
+    border-color: rgba(59, 130, 246, 0.55);
+    background: rgba(59, 130, 246, 0.16);
+}
+
+.contact-link-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(6, 182, 212, 0.12));
+    border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+.contact-link-text {
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.contact-link-value {
+    color: var(--text-muted);
+    font-weight: 600;
+    justify-self: end;
+    text-align: right;
+}
+
+/* Form styles (để lại nếu bạn muốn quay lại về sau) */
+.contact-form {
+    display: none;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
+
 
 .form-label {
     display: block;
@@ -896,11 +1034,12 @@ section {
     font-size: 0.95rem;
 }
 
+
 .form-input,
 .form-textarea {
     width: 100%;
     padding: 0.75rem 1rem;
-    background-color: #f9fafb;
+    background-color: var(--input-bg);
     border: 1px solid rgba(229, 231, 235, 0.8);
     border-radius: var(--radius-md);
     color: var(--text-light);
@@ -909,18 +1048,31 @@ section {
     transition: all var(--transition-normal);
 }
 
+:root.dark .form-input,
+:root.dark .form-textarea {
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+
 .form-input::placeholder,
 .form-textarea::placeholder {
     color: #9ca3af;
 }
+
+:root.dark .form-input::placeholder,
+:root.dark .form-textarea::placeholder {
+    color: rgba(203, 213, 225, 0.7);
+}
+
 
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    background-color: #ffffff;
+    background-color: var(--bg-surface);
 }
+
 
 .form-textarea {
     resize: vertical;
@@ -957,10 +1109,11 @@ section {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #ffffff, #f9fafb);
+    background: linear-gradient(135deg, var(--modal-bg), var(--bg-surface));
     padding: 2.5rem;
     border-radius: var(--radius-lg);
     max-width: 700px;
+
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
@@ -989,6 +1142,7 @@ section {
     font-weight: bold;
     color: var(--text-muted);
     cursor: pointer;
+
     transition: all var(--transition-fast);
     width: 40px;
     height: 40px;
@@ -1032,9 +1186,10 @@ section {
 }
 
 .modal-section p {
-    color: #4b5563;
+    color: var(--text-muted);
     line-height: 1.8;
 }
+
 
 .tech-list {
     display: flex;
@@ -1073,9 +1228,10 @@ section {
 
 /* ==================== FOOTER ==================== */
 .footer {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-page) 100%);
     border-top: 1px solid rgba(229, 231, 235, 0.8);
     padding: 2rem 1rem;
+
     text-align: center;
     position: relative;
 }
@@ -1091,9 +1247,10 @@ section {
 }
 
 .footer p {
-    color: #6b7280;
+    color: var(--text-muted);
     font-size: 0.9rem;
     position: relative;
+
     z-index: 1;
 }
 
