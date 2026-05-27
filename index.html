@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của một kỹ sư phần mềm đam mê Backend Development và Automation Testing">
+    <meta name="author" content="An Nguyễn">
+    <title>An Nguyễn - Software Engineering Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1 class="logo">An Nguyễn</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link">Về tôi</a></li>
+                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+                <li><a href="#projects" class="nav-link">Dự án</a></li>
+                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HOME SECTION ==================== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Xin chào! 👋</h1>
+                <p class="hero-subtitle">Tôi là An Nguyễn, một kỹ sư phần mềm đam mê phát triển Backend và Kiểm thử tự động</p>
+                <p class="hero-description">
+                    Sinh viên Kỹ thuật Phần mềm tại Đại học FPT, tập trung vào xây dựng các hệ thống Backend mạnh mẽ 
+                    và thực hiện kiểm thử tự động chất lượng cao.
+                </p>
+                <a href="#projects" class="btn btn-primary">Xem dự án của tôi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Về Tôi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Tôi là một sinh viên năm cuối Kỹ thuật Phần mềm tại Đại học FPT, với đam mê sâu sắc 
+                        trong việc phát triển các hệ thống Backend hiệu quả và kiểm thử tự động toàn diện.
+                    </p>
+                    <p>
+                        Quá trình học tập của tôi tập trung vào việc nắm vững các công nghệ như Java Spring Boot, 
+                        .NET Core, và các công cụ kiểm thử tự động hàng đầu. Tôi không chỉ học lý thuyết mà còn 
+                        áp dụng vào các dự án thực tế.
+                    </p>
+                    <p>
+                        Mục tiêu của tôi là trở thành một kỹ sư phần mềm toàn diện, có khả năng thiết kế, phát triển 
+                        và đảm bảo chất lượng cho các ứng dụng hệ thống.
+                    </p>
+                </div>
+                <div class="about-highlight">
+                    <div class="highlight-box">
+                        <h3>⚡ Đặc điểm nổi bật</h3>
+                        <ul class="highlight-list">
+                            <li>Kiến thức vững về Backend Architecture</li>
+                            <li>Kỹ năng Automation Testing cao cấp</li>
+                            <li>Có kinh nghiệm với IoT và Embedded Systems</li>
+                            <li>Luôn sẵn sàng học các công nghệ mới</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Kỹ Năng</h2>
+            <div class="skills-grid">
+                <!-- Backend Skills -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">💻 Backend Development</h3>
+                    <div class="skill-items">
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Spring Boot</span>
+                        <span class="skill-badge">Jakarta EE</span>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">.NET Core</span>
+                        <span class="skill-badge">RESTful API</span>
+                    </div>
+                </div>
+
+                <!-- Testing & Tools -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">🔧 Testing & Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-badge">Ranorex Studio</span>
+                        <span class="skill-badge">JUnit</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Maven</span>
+                        <span class="skill-badge">Gradle</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Frontend & IoT -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">🎨 Frontend & IoT</h3>
+                    <div class="skill-items">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">ESP32</span>
+                        <span class="skill-badge">Blynk IoT</span>
+                        <span class="skill-badge">Arduino</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Dự Án</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="java">Java/Spring</button>
+                <button class="filter-btn" data-filter="dotnet">.NET/C#</button>
+                <button class="filter-btn" data-filter="automation">Automation Test</button>
+                <button class="filter-btn" data-filter="iot">IoT/Embedded</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1: Java/Spring -->
+                <div class="project-card" data-category="java">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">📋</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hệ Thống Quản Lý Hồ Sơ Bệnh Nhân</h3>
+                        <p class="project-description">Ứng dụng quản lý thông tin bệnh nhân toàn diện chạy trên Tomcat</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Tomcat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: .NET/C# -->
+                <div class="project-card" data-category="dotnet">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">🔌</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Web API Quản Lý Thiết Bị IoT</h3>
+                        <p class="project-description">API REST để quản lý các thiết bị IoT thông minh</p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET Core</span>
+                            <span class="tag">RESTful API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Automation Test -->
+                <div class="project-card" data-category="automation">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">✅</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Kịch Bản Kiểm Thử Tự Động Dữ Liệu Lớn</h3>
+                        <p class="project-description">Tự động hóa kiểm thử cho hệ thống xử lý dữ liệu quy mô lớn</p>
+                        <div class="project-tags">
+                            <span class="tag">Ranorex Studio</span>
+                            <span class="tag">JUnit</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: IoT/Embedded -->
+                <div class="project-card" data-category="iot">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">🤖</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Thiết Bị Hỗ Trợ Thông Minh</h3>
+                        <p class="project-description">Thiết bị tích hợp ESP32 và cảm biến MPU6050 qua Blynk IoT</p>
+                        <div class="project-tags">
+                            <span class="tag">ESP32</span>
+                            <span class="tag">Blynk</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Liên Hệ</h2>
+            <div class="contact-content">
+                <p class="contact-description">
+                    Hãy liên hệ với tôi nếu bạn có bất kỳ câu hỏi hoặc cơ hội hợp tác nào!
+                </p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Họ và Tên</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            class="form-input" 
+                            placeholder="Nhập họ và tên của bạn"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="Nhập email của bạn"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Tiêu Đề</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            class="form-input" 
+                            placeholder="Tiêu đề tin nhắn"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Nội Dung</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="form-textarea" 
+                            placeholder="Nhập nội dung tin nhắn của bạn"
+                            rows="5"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Gửi Tin Nhắn</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 An Nguyễn. Tất cả quyền được bảo lưu. | Software Engineering Student at FPT University</p>
+        </div>
+    </footer>
+
+    <!-- ==================== PROJECT DETAIL MODAL ==================== -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title">Chi Tiết Dự Án</h2>
+                <div class="modal-divider"></div>
+                
+                <div class="modal-section">
+                    <h3>📝 Mô Tả Dự Án</h3>
+                    <p id="modalDescription"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🛠️ Công Nghệ Sử Dụng</h3>
+                    <div id="modalTechnologies" class="tech-list"></div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📦 Cấu Trúc Dự Án</h3>
+                    <p id="modalStructure"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>✨ Tính Năng Chính</h3>
+                    <ul id="modalFeatures" class="feature-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
